@@ -1,0 +1,1 @@
+{"seed": 3, "lr_init": 0.00094, "gamma": 0.99, "tau": 0.005, "ent_coef_init": 1.0, "batch_size": 256, "buffer_size": 50000, "actor": {"layers": [64, 64]}, "critic": {"layers": [64, 64]}}

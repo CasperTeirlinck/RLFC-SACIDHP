@@ -1,0 +1,12 @@
+cycler==0.11.0
+gym==0.21.0
+matplotlib==3.5.1
+optuna==2.10.0
+pandas==1.4.0
+pyperclip==1.8.2
+scipy==1.7.3
+setuptools==58.1.0
+tensorflow==2.7.1
+tensorflow_probability==0.15.0
+termcolor==1.1.0
+tqdm==4.62.3

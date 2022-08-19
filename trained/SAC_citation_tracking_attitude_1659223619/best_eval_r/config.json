@@ -1,0 +1,1 @@
+{"seed": 3096642902855015463, "s_states": [0, 1, 2], "s_dim": 6, "lr_init": 0.00044, "gamma": 0.99, "tau": 0.005, "update_every": 1, "ent_coef_init": 1.0, "caps_coef_t": 400, "caps_coef_s": 400, "caps_std": 0.05, "batch_size": 256, "buffer_size": 1000000, "incr": false, "actor": {"layers": [64, 64]}, "critic": {"layers": [64, 64]}}

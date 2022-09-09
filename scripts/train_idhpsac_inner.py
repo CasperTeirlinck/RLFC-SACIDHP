@@ -11,10 +11,7 @@ from envs.citation import Citation
 from tasks.tracking_attitude import TrackAttitude
 
 from tools import set_plot_styles
-from tasks import TrackPitchRate, TrackAoA
-from envs import ShortPeriod
 from agents import IDHPSAC, SAC
-from tools import create_dir, plot_weights_idhp, plot_incremental_model
 from tools.plotting import plot_weights_and_model
 from tools.utils import create_dir_time, d2r, nMAE, set_random_seed
 from tensorflow.python.ops.numpy_ops import np_config
@@ -336,7 +333,7 @@ def train():
     env.render(task, env_sac=env_sac)
 
     # Plot weights
-    plot_weights_and_model(agent, task, zoom_F=[-1.5, 1.0], zoom_G=[-0.35, 0.05])
+    # plot_weights_and_model(agent, task, zoom_F=[-1.5, 1.0], zoom_G=[-0.35, 0.05])
 
 
 if __name__ == "__main__":

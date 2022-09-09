@@ -205,22 +205,13 @@ def evaluate_idhpsac(save_dir, save_dir_idhpsac):
     config_agent_idhpsac["actor"]["lr_high"] = 0.02
     config_agent_idhpsac["critic"]["lr_high"] = 0.1
 
-    config_agent_idhpsac["model"]["eps_thresh"] = [
-        np.inf,  # 0.001, # p
-        # 0.001,  # 0.001, # q
-        np.inf,  # 0.001, # q
-        np.inf,  # 0.001, # r
-        np.inf,  # 0.0005, # alpha
-        np.inf,  # 0.0005, # theta
-        np.inf,  # 0.0005, # phi
-        np.inf,  # 0.0005, # beta
-    ]
+    # config_agent_idhpsac["model"]["eps_thresh"][1] = 0.001  # q
 
-    config_agent_idhpsac["lp_enable"] = False
-    config_agent_idhpsac["lp_w0"] = d2r(40)
+    # config_agent_idhpsac["lp_enable"] = True
+    # config_agent_idhpsac["lp_w0"] = d2r(40)
 
-    # config_env["failure"] = "de_reduce"
-    # config_env["failure_time"] = 30
+    config_env["failure"] = "cg_shift"
+    config_env["failure_time"] = 30
     # config_env["control_disturbance"] = task.get_control_disturbance()
     # config_env["atm_disturbance"] = True
     # config_env["sensor_noise"] = True
@@ -246,7 +237,7 @@ def evaluate_idhpsac(save_dir, save_dir_idhpsac):
 
     # Plots
     env.render(task, env_sac=agent_sac.env.env_inner, show_rmse=False)
-    plot_weights_and_model(env.agent_inner, task)
+    # plot_weights_and_model(env.agent_inner, task)
 
 
 if __name__ == "__main__":

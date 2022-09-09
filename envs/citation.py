@@ -499,10 +499,10 @@ class Citation(gym.Env):
                 if i == len(idxs) - 1:
                     ax.set_xlabel(r"$Time$ [s]")
 
-                (line_action,) = ax.plot(task.timevec, y_mean, label=rf"${action_label}$", color="C2", linestyle=":")
-                (line_action_minmax,) = ax.plot(task.timevec, y_min, color="C2", linewidth=0.5)
-                (line_action_minmax,) = ax.plot(task.timevec, y_max, color="C2", linewidth=0.5)
-                ax.fill_between(task.timevec, y_max, y_min, color="C2", alpha=0.2)
+                (line_action,) = ax.plot(task.timevec, y_mean, label=rf"${action_label}$", color="C0", linestyle=":")
+                (line_action_minmax,) = ax.plot(task.timevec, y_min, color="C0", linewidth=0.5)
+                (line_action_minmax,) = ax.plot(task.timevec, y_max, color="C0", linewidth=0.5)
+                ax.fill_between(task.timevec, y_max, y_min, color="C0", alpha=0.2)
 
                 # Failure time
                 if self.failure:
@@ -516,8 +516,8 @@ class Citation(gym.Env):
         line_action, line_action_minmax = plot_actions(action_lat_idxs, 1, len(state_lat_idxs))
 
         # Legend
-        handles = [line_state, line_state_minmax, line_ref, line_ref_internal, line_action, line_action_minmax]
-        labels = ["state mean", "state Q1/Q3", "reference", "reference (internal)", "action", "action Q1/Q3"]
+        handles = [line_state, line_state_minmax, line_ref, line_ref_internal]
+        labels = ["mean", "interquartile range", "reference", "reference (internal)"]
         labels = [_ for i, _ in enumerate(labels) if handles[i] is not None]
         handles = [_ for _ in handles if _ is not None]
 
@@ -692,7 +692,7 @@ class Citation(gym.Env):
                     (line_action_sac,) = ax.plot(
                         task.timevec[:idx_end], y_sac, label=rf"${action_label}$", color="#C1C1C1", linewidth=2
                     )
-                (line_action,) = ax.plot(task.timevec[:idx_end], y, label=rf"${action_label}$", color="C2")
+                (line_action,) = ax.plot(task.timevec[:idx_end], y, label=rf"${action_label}$", color="C0")
 
                 if self.control_disturbance is not None:
                     (line_action_disturbance,) = ax.plot(
@@ -800,21 +800,21 @@ class Citation(gym.Env):
         # Legend
         handles = [
             line_state,
+            line_state_sac,
             line_simulink,
             line_ref,
             line_ref_internal,
-            line_action,
+            # line_action,
             line_action_disturbance,
-            line_state_sac,
         ]
         labels = [
-            "state",
+            "SAC-IDHP",
+            "SAC-only",
             "state Simulink",
             "reference",
             "reference (internal)",
-            "action",
+            # "action",
             "control disturbance",
-            "state/action SAC-only",
         ]
         labels = [_ for i, _ in enumerate(labels) if handles[i] is not None]
         handles = [_ for _ in handles if _ is not None]

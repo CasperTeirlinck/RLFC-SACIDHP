@@ -11,8 +11,6 @@ from envs.citation import Citation
 from tasks.tracking_attitude import TrackAttitude
 
 from tools import set_plot_styles
-from tasks import TrackPitchRate, TrackAoA
-from envs import ShortPeriod
 from agents import IDHPSAC, SAC
 from tools import create_dir, plot_weights_idhp, plot_incremental_model
 from tools.plotting import plot_weights_and_model
@@ -53,12 +51,12 @@ def evaluate(save_dir):
 
     # Task
     config_task["T"] = 60
-    task = TrackAttitude(config_task, evaluate=True)
-    # task = TrackAttitude(config_task, evaluate_hard=True)
+    # task = TrackAttitude(config_task, evaluate=True)
+    task = TrackAttitude(config_task, evaluate_hard=True)
 
     # Environment
-    # config_env["failure"] = "ht_reduce"
-    # config_env["failure_time"] = 30
+    config_env["failure"] = "ht_reduce"
+    config_env["failure_time"] = 30
     env = Citation(config_env, dt=config_task["dt"])
     env_sac = Citation(config_env, dt=config_task["dt"])
 

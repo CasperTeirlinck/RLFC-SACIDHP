@@ -7,6 +7,8 @@ Authors: [Casper Teirlinck](https://github.com/CasperTeirlinck) &nbsp; [![Linked
 
 > Part of obtaining MSc Thesis at Control & Simulation Departement, Faculty of Aerospace Engineering at Delft University of Technology
 
+Paper published by the American Institute of Aeronautics and Astronautics @ [doi.org/10.2514/6.2024-2406](https://doi.org/10.2514/6.2024-2406)
+
 ## System Dependencies
 
 - Python + pip (tested with Python 3.9.9)
